@@ -1,0 +1,15 @@
+{
+	"name": "noorlearningfactory",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "centralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "3236f10a-1a2d-4604-a358-5bc6f042669f",
+		"tenantId": "4725c623-4568-4c79-b56d-71adc46aaba4"
+	}
+}

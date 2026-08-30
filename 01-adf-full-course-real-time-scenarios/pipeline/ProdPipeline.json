@@ -1,0 +1,72 @@
+{
+	"name": "ProdPipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "ExecuteManagerPipeline",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipelinemanager",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "ExecuteGitPipeline",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "ExecuteManagerPipeline",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipelineGit",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "ExecuteSelectedFilesPipeline",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "ExecuteGitPipeline",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "OnlySelectedFiles",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-08-30T19:04:17Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
