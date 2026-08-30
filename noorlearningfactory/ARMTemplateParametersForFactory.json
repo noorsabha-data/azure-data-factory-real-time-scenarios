@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "noorlearningfactory"
+		},
+		"ls_data_lake_accountKey": {
+			"value": ""
+		},
+		"ls_data_lake_properties_typeProperties_url": {
+			"value": "https://factorystoragenoor.dfs.core.windows.net/"
+		},
+		"ls_github_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com"
+		},
+		"managerTrigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/ad032acc-32a7-432e-9fa8-7a86c14691ff/resourceGroups/RG-ADFLearning/providers/Microsoft.Storage/storageAccounts/factorystoragenoor"
+		}
+	}
+}
