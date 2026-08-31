@@ -1,0 +1,15 @@
+{
+	"name": "noorlrngfctry",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "centralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e5b6f33f-30bd-43d6-9229-a130ce90c176",
+		"tenantId": "4725c623-4568-4c79-b56d-71adc46aaba4"
+	}
+}
