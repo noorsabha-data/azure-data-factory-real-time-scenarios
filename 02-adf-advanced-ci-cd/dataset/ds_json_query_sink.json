@@ -1,0 +1,19 @@
+{
+	"name": "ds_json_query_sink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_datalake",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "api_query",
+				"fileSystem": "sink"
+			}
+		},
+		"schema": {}
+	}
+}

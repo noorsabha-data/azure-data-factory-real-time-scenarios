@@ -1,0 +1,15 @@
+{
+	"name": "ds_query_rest",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_rest_api",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": "?offset={offset}"
+		},
+		"schema": []
+	}
+}
