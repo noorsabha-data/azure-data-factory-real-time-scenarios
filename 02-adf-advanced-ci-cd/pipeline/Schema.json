@@ -75,12 +75,49 @@
 										"type": "DelimitedTextReadSettings"
 									}
 								},
-								"enableStaging": false
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"value": "@item().schema",
+									"type": "Expression"
+								}
 							},
 							"inputs": [
 								{
 									"referenceName": "ds_files_generic",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"container": "source",
+										"folder": "files",
+										"file": {
+											"value": "@item().name",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "ds_files_generic",
+									"type": "DatasetReference",
+									"parameters": {
+										"container": "sink",
+										"folder": "schema",
+										"file": {
+											"value": "@item().name",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
