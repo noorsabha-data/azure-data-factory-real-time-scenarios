@@ -1,0 +1,85 @@
+{
+	"name": "ds_schema_json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_datalake",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"file_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().file_name",
+					"type": "Expression"
+				},
+				"folderPath": "dynamic_schemas",
+				"fileSystem": "source"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"type": {
+					"type": "string"
+				},
+				"mappings": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"source": {
+								"type": "object",
+								"properties": {
+									"name": {
+										"type": "string"
+									},
+									"type": {
+										"type": "string"
+									},
+									"physicalType": {
+										"type": "string"
+									}
+								}
+							},
+							"sink": {
+								"type": "object",
+								"properties": {
+									"name": {
+										"type": "string"
+									},
+									"type": {
+										"type": "string"
+									},
+									"physicalType": {
+										"type": "string"
+									}
+								}
+							}
+						}
+					}
+				},
+				"typeConversion": {
+					"type": "boolean"
+				},
+				"typeConversionSettings": {
+					"type": "object",
+					"properties": {
+						"allowDataTruncation": {
+							"type": "boolean"
+						},
+						"treatBooleanAsNumber": {
+							"type": "boolean"
+						}
+					}
+				}
+			}
+		}
+	}
+}
